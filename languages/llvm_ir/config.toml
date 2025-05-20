@@ -1,0 +1,6 @@
+name = "LLVM IR"
+grammar = "llvm"
+path_suffixes = ["ll", "llvm"]
+line_comments = ["; "]
+tab_size = 2
+first_line_pattern = "^\\s*;\\s*ModuleID"

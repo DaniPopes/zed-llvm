@@ -1,0 +1,10 @@
+name = "LLVM IR"
+description = "Syntax highlighting for LLVM Intermediate Representation (IR)"
+repository = "https://github.com/DaniPopes/zed-llvm"
+version = "0.1.0"
+authors = ["DaniPopes"]
+categories = ["languages"]
+
+[grammars.llvm]
+repository = "https://github.com/benwilliamgraham/tree-sitter-llvm"
+rev = "1ac83114e71839fa67f4cce2f864ebbbdf6e2a4f"
