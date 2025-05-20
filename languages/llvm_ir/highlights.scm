@@ -1,58 +1,147 @@
-; Keywords 
+(type) @type
+(type_keyword) @type.builtin
+
+(type [
+    (local_var)
+    (global_var)
+  ] @type)
+
+(argument) @variable.parameter
+
+(_ inst_name: _ @keyword.operator)
+
 [
+  "catch"
+  "filter"
+] @keyword.operator
+
+[
+  "to"
+  "nneg"
+  "nuw"
+  "nsw"
+  "exact"
+  "disjoint"
+  "unwind"
+  "from"
+  "cleanup"
+  "swifterror"
+  "volatile"
+  "inbounds"
+  "inrange"
+] @keyword.control
+(icmp_cond) @keyword.control
+(fcmp_cond) @keyword.control
+
+(fast_math) @keyword.control
+
+(_ callee: _ @function)
+(function_header name: _ @function)
+
+[
+  "declare"
   "define"
-  "declare"
-  "global"
-  "constant"
-  "internal"
-  "external"
-  "private"
-  "linkonce"
-  "linkonce_odr"
-  "weak"
-  "weak_odr"
-  "appending"
-  "common"
-  "extern_weak"
-  "available_externally"
-  "dllimport"
-  "dllexport"
-  "hidden"
-  "protected"
-  "default"
-  "except"
-  "extern"
-  "attribute"
-  "declare"
-  "module"
-  "addrspace"
-  "source_filename"
+] @keyword.function
+(calling_conv) @keyword.function
+
+[
   "target"
   "triple"
   "datalayout"
-  "volatile"
-  "atomic"
+  "source_filename"
+  "addrspace"
+  "blockaddress"
+  "align"
+  "syncscope"
+  "within"
+  "uselistorder"
+  "uselistorder_bb"
+  "module"
+  "asm"
+  "sideeffect"
+  "alignstack"
+  "inteldialect"
+  "unwind"
+  "type"
+  "global"
+  "constant"
+  "externally_initialized"
+  "alias"
+  "ifunc"
+  "section"
+  "comdat"
+  "thread_local"
+  "localdynamic"
+  "initialexec"
+  "localexec"
+  "any"
+  "exactmatch"
+  "largest"
+  "nodeduplicate"
+  "samesize"
+  "distinct"
+  "attributes"
+  "vscale"
+  "no_cfi"
 ] @keyword
 
-; Types
-[
-  "void"
-  "half"
-  "float"
-  "double"
-  "x86_fp80"
-  "fp128"
-  "ppc_fp128"
-  "label"
-  "metadata"
-  "x86_mmx"
-  "opaque"
-] @type
+(linkage_aux) @keyword
+(dso_local) @keyword
+(visibility) @keyword
+(dll_storage_class) @keyword
+(unnamed_addr) @keyword
+(attribute_name) @keyword
 
-; Type modifiers
-(type_int) @type
+(function_header [
+    (linkage)
+    (calling_conv)
+    (unnamed_addr)
+  ] @keyword.function)
+
+(number) @constant.numeric.integer
+(comment) @comment
+(string) @string
+(cstring) @string
+(label) @label
+(_ inst_name: "ret" @keyword.control.return)
+(float) @constant.numeric.float
+
+[
+  (local_var)
+  (global_var)
+] @variable
+
+[
+  (struct_value)
+  (array_value)
+  (vector_value)
+] @constructor
+
+[
+  "("
+  ")"
+  "["
+  "]"
+  "{"
+  "}"
+  "<"
+  ">"
+  "<{"
+  "}>"
+] @punctuation.bracket
+
+[
+  ","
+  ":"
+] @punctuation.delimiter
 
 ; Operators
+[
+  "="
+  "|"
+  "x"
+  "..."
+] @operator
 [
   "icmp"
   "fcmp"
@@ -140,50 +229,17 @@
   "tail"
 ] @operator
 
-; Constants
-(constant_int) @number
-(constant_float) @number
-(constant_string) @string
-(constant_boolean) @boolean
-(constant_null) @constant
-
-; Labels
-(label) @label
-(label_ref) @label
-
-; Special registers
-(local_var 
-  (local_name) @variable.special)
-
-(global_name) @variable.special
-
-; Comments 
-(comment) @comment
-
-; Metadata
-(metadata_ref) @attribute
-(metadata_node) @attribute
-(metadata_string) @string.special
-(metadata_string (string_literal) @string.special)
-
-; Commas and parentheses
 [
- ","
- "="
-] @punctuation.delimiter
+  "true"
+  "false"
+] @constant.builtin.boolean
 
 [
- "("
- ")"
- "["
- "]"
- "{"
- "}"
- "<"
- ">"
- "<<"
- ">>"
-] @punctuation.bracket
+  "undef"
+  "poison"
+  "null"
+  "none"
+  "zeroinitializer"
+] @constant.builtin
 
-; Attribute groups
-(attribute_group) @attribute
+(ERROR) @error

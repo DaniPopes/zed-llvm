@@ -1,8 +1,10 @@
+id = "llvm"
 name = "LLVM IR"
-description = "Syntax highlighting for LLVM Intermediate Representation (IR)"
-repository = "https://github.com/DaniPopes/zed-llvm"
 version = "0.1.0"
+schema_version = 1
 authors = ["DaniPopes"]
+description = "LLVM Intermediate Representation (IR) support"
+repository = "https://github.com/DaniPopes/zed-llvm"
 categories = ["languages"]
 
 [grammars.llvm]

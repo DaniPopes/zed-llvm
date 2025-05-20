@@ -1,14 +1,14 @@
 ; Functions
-(function 
-  (function_header 
+(function
+  (function_header
     name: (global_name) @name)) @item
-    
+
 ; Global variables
-(global_variable 
+(global_variable
   name: (global_name) @name) @item
-  
+
 ; Structure type definitions
-(type_declaration 
+(type_declaration
   name: (_) @name) @item
 
 ; Module identification
