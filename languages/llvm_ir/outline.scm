@@ -1,20 +1,33 @@
-; Functions
-(function
-  (function_header
-    name: (global_name) @name)) @item
+; Function definitions for the outline
+(define
+  (function_header 
+    name: (global_var) @name)) @item
 
-; Global variables
-(global_variable
-  name: (global_name) @name) @item
+; Function declarations
+(declare 
+  (function_header 
+    name: (global_var) @name)) @item
 
-; Structure type definitions
-(type_declaration
-  name: (_) @name) @item
+; Global variable definitions
+(global_global 
+  (global_var) @name) @item
+
+; Type definitions
+(global_type 
+  (local_var) @name) @item
 
 ; Module identification
-(module_declaration
-  (string_literal) @name) @item
+(source_file_name 
+  (string) @name) @item
 
-; Target triples
-(target_triple
-  (string_literal) @name) @item
+; Target definitions
+(target_definition
+  (target_triple 
+    (string) @name)) @item
+
+; Labels in functions
+(label) @name @item
+
+; Metadata definitions
+(global_metadata
+  (metadata_ref) @name) @item

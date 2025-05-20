@@ -1,176 +1,105 @@
-(type) @type
-(type_keyword) @type.builtin
+; LLVM IR syntax highlighting
+; Comments
+(comment) @comment
 
-(type [
-    (local_var)
-    (global_var)
-  ] @type)
-
-(argument) @variable.parameter
-
-(_ inst_name: _ @keyword.operator)
-
+; Keywords
 [
-  "catch"
-  "filter"
-] @keyword.operator
-
-[
-  "to"
-  "nneg"
-  "nuw"
-  "nsw"
-  "exact"
-  "disjoint"
-  "unwind"
-  "from"
-  "cleanup"
-  "swifterror"
-  "volatile"
-  "inbounds"
-  "inrange"
-] @keyword.control
-(icmp_cond) @keyword.control
-(fcmp_cond) @keyword.control
-
-(fast_math) @keyword.control
-
-(_ callee: _ @function)
-(function_header name: _ @function)
-
-[
-  "declare"
   "define"
-] @keyword.function
-(calling_conv) @keyword.function
-
-[
+  "declare"
+  "global"
+  "constant"
+  "private"
+  "internal"
+  "weak"
+  "weak_odr"
+  "linkonce"
+  "linkonce_odr"
+  "available_externally"
+  "appending"
+  "common"
+  "extern_weak"
+  "external"
+  "dso_local"
+  "dso_local_equivalent"
+  "dso_preemptable"
+  "default"
+  "hidden"
+  "protected"
+  "dllimport"
+  "dllexport"
+  "unnamed_addr"
+  "local_unnamed_addr"
+  "addrspace"
+  "source_filename"
   "target"
   "triple"
   "datalayout"
-  "source_filename"
-  "addrspace"
-  "blockaddress"
-  "align"
-  "syncscope"
-  "within"
-  "uselistorder"
-  "uselistorder_bb"
+  "volatile"
+  "atomic"
+  "unwind"
+  "to"
+  "inbounds"
+  "inalloca"
+  "inrange"
   "module"
   "asm"
   "sideeffect"
   "alignstack"
   "inteldialect"
-  "unwind"
-  "type"
-  "global"
-  "constant"
-  "externally_initialized"
-  "alias"
-  "ifunc"
-  "section"
   "comdat"
-  "thread_local"
-  "localdynamic"
-  "initialexec"
-  "localexec"
-  "any"
-  "exactmatch"
-  "largest"
-  "nodeduplicate"
-  "samesize"
-  "distinct"
   "attributes"
-  "vscale"
+  "align"
+  "distinct"
+  "thread_local"
+  "externally_initialized"
+  "personality"
+  "partition"
   "no_cfi"
+  "uselistorder"
+  "uselistorder_bb"
 ] @keyword
 
-(linkage_aux) @keyword
-(dso_local) @keyword
-(visibility) @keyword
-(dll_storage_class) @keyword
-(unnamed_addr) @keyword
-(attribute_name) @keyword
-
-(function_header [
-    (linkage)
-    (calling_conv)
-    (unnamed_addr)
-  ] @keyword.function)
-
-(number) @constant.numeric.integer
-(comment) @comment
-(string) @string
-(cstring) @string
-(label) @label
-(_ inst_name: "ret" @keyword.control.return)
-(float) @constant.numeric.float
-
+; Control flow
 [
-  (local_var)
-  (global_var)
-] @variable
+  "ret"
+  "br"
+  "switch"
+  "indirectbr"
+  "invoke"
+  "callbr"
+  "resume"
+  "catchswitch"
+  "catchret"
+  "cleanupret"
+  "unreachable"
+] @keyword.control
 
+; Type keywords
 [
-  (struct_value)
-  (array_value)
-  (vector_value)
-] @constructor
+  "void"
+  "half"
+  "bfloat"
+  "float"
+  "double"
+  "x86_fp80"
+  "fp128"
+  "ppc_fp128"
+  "label"
+  "metadata"
+  "x86_mmx"
+  "x86_amx"
+  "token"
+  "opaque"
+  "ptr"
+] @type
 
-[
-  "("
-  ")"
-  "["
-  "]"
-  "{"
-  "}"
-  "<"
-  ">"
-  "<{"
-  "}>"
-] @punctuation.bracket
+; Integer types
+(type_keyword) @type
 
-[
-  ","
-  ":"
-] @punctuation.delimiter
-
-; Operators
-[
-  "="
-  "|"
-  "x"
-  "..."
-] @operator
+; Operators & Instructions
 [
   "icmp"
   "fcmp"
-  "eq"
-  "ne"
-  "ugt"
-  "uge"
-  "ult"
-  "ule"
-  "sgt"
-  "sge"
-  "slt"
-  "sle"
-  "oeq"
-  "ogt"
-  "oge"
-  "olt"
-  "ole"
-  "one"
-  "ord"
-  "ueq"
-  "ugt"
-  "uge"
-  "ult"
-  "ule"
-  "une"
-  "uno"
-  "true"
-  "false"
   "add"
   "fadd"
   "sub"
@@ -189,57 +118,167 @@
   "and"
   "or"
   "xor"
-  "select"
-  "va_arg"
+  "xchg"
+  "nand"
+  "max"
+  "min"
+  "umax"
+  "umin"
   "extractelement"
   "insertelement"
   "shufflevector"
+  "select"
   "phi"
+  "freeze"
+  "call"
+  "va_arg"
   "landingpad"
-  "resume"
-  "malloc"
+  "catchpad"
+  "cleanuppad"
   "alloca"
-  "free"
   "load"
   "store"
+  "cmpxchg"
+  "atomicrmw"
+  "fence"
   "getelementptr"
-  "extractvalue"
-  "insertvalue"
-  "inttoptr"
-  "ptrtoint"
-  "bitcast"
+  "trunc"
   "zext"
   "sext"
-  "trunc"
   "fptrunc"
   "fpext"
-  "fptoui"
-  "fptosi"
+  "bitcast"
+  "addrspacecast"
   "uitofp"
   "sitofp"
-  "addrspacecast"
-  "invoke"
-  "ret"
-  "br"
-  "switch"
-  "indirectbr"
-  "unreachable"
-  "inbounds"
-  "call"
-  "tail"
+  "fptoui"
+  "fptosi"
+  "inttoptr"
+  "ptrtoint"
+  "extractvalue"
+  "insertvalue"
+  "fneg"
+] @function.builtin
+
+; Comparison operators
+[
+  "eq"
+  "ne"
+  "ugt"
+  "uge"
+  "ult"
+  "ule"
+  "sgt"
+  "sge"
+  "slt"
+  "sle"
+  "oeq"
+  "ogt"
+  "oge"
+  "olt"
+  "ole"
+  "one"
+  "ord"
+  "ueq"
+  "une"
+  "uno"
 ] @operator
 
+; Fast math flags
+[
+  "nnan"
+  "ninf"
+  "nsz"
+  "arcp"
+  "contract"
+  "afn"
+  "reassoc"
+  "fast"
+  "nsw"
+  "nuw"
+  "exact"
+] @attribute
+
+; Atomic orderings
+[
+  "unordered"
+  "monotonic"
+  "acquire"
+  "release"
+  "acq_rel"
+  "seq_cst"
+  "syncscope"
+] @constant.builtin
+
+; Constants
 [
   "true"
   "false"
-] @constant.builtin.boolean
-
-[
-  "undef"
-  "poison"
   "null"
   "none"
+  "undef"
+  "poison"
   "zeroinitializer"
 ] @constant.builtin
 
-(ERROR) @error
+; Numbers
+(number) @number
+(float) @number.float
+
+; Strings
+(string) @string
+(cstring) @string
+
+; Variables
+(local_var) @variable
+(global_var) @variable.special
+
+; Labels
+(label) @label
+
+; Attributes
+(attribute_name) @attribute
+(attr_ref) @attribute
+
+; Metadata
+(metadata_name) @meta
+(metadata_ref) @meta
+(metadata_tuple) @meta
+(specialized_md) @meta
+(metadata_tuple) @meta
+
+; Punctuation
+[
+  ","
+  "="
+] @punctuation.delimiter
+
+[
+  "("
+  ")"
+  "["
+  "]"
+  "{"
+  "}"
+  "<"
+  ">"
+  "<<"
+  ">>"
+] @punctuation.bracket
+
+; Calling convention
+[
+  "ccc"
+  "fastcc"
+  "coldcc"
+  "webkit_jscc"
+  "anyregcc"
+  "preserve_mostcc"
+  "preserve_allcc"
+  "cxx_fast_tlscc"
+  "tailcc"
+  "swiftcc"
+  "swifttailcc"
+  "cfguard_checkcc"
+  "ghccc"
+] @attribute
