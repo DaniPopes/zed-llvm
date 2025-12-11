@@ -1,263 +1,158 @@
-; Keywords
+(type) @type
+(type_keyword) @type.builtin
+
+(type [
+    (local_var)
+    (global_var)
+  ] @type)
+
+(argument) @variable.parameter
+
+(_ inst_name: _ @keyword.operator)
+
 [
-  "add"
-  "addrspace"
-  "addrspacecast"
-  "align"
-  "alloca"
-  "and"
-  "arcp"
-  "ashr"
-  "asm"
-  "atomic"
-  "atomicrmw"
-  "attributes"
-  "available_externally"
-  "bitcast"
-  "blockaddress"
-  "br"
-  "byval"
-  "c"
-  "call"
-  "callbr"
   "catch"
-  "catchpad"
-  "catchret"
-  "catchswitch"
-  "ccc"
-  "cleanup"
-  "cleanuppad"
-  "cleanupret"
-  "cmpxchg"
-  "comdat"
-  "common"
-  "constant"
-  "datalayout"
-  "declare"
-  "default"
-  "define"
-  "dereferenceable"
-  "distinct"
-  "dllexport"
-  "dllimport"
-  "double"
-  "dso_local"
-  "dso_preemptable"
-  "extractelement"
-  "extractvalue"
-  "fadd"
-  "false"
-  "fast"
-  "fcmp"
-  "fdiv"
-  "fence"
   "filter"
-  "float"
-  "fneg"
-  "fpext"
-  "fptosi"
-  "fptoui"
-  "fptrunc"
-  "frem"
-  "from"
-  "fsub"
-  "getelementptr"
-  "global"
-  "half"
-  "hidden"
-  "icmp"
-  "ifunc"
-  "inalloca"
-  "inbounds"
-  "indirectbr"
-  "initialexec"
-  "inlinehint"
-  "inrange"
-  "insertelement"
-  "insertvalue"
-  "inteldialect"
-  "internal"
-  "inttoptr"
-  "invoke"
-  "label"
-  "landingpad"
-  "linkonce"
-  "linkonce_odr"
-  "load"
-  "local_unnamed_addr"
-  "lshr"
-  "metadata"
-  "module"
-  "mul"
-  "musttail"
-  "nand"
-  "ne"
-  "ninf"
-  "nnan"
-  "noalias"
-  "nocapture"
-  "none"
-  "nonnull"
-  "norecurse"
-  "noreturn"
-  "notail"
-  "nsw"
-  "nsz"
-  "null"
-  "nuw"
-  "oeq"
-  "oge"
-  "ogt"
-  "ole"
-  "olt"
-  "one"
-  "opaque"
-  "or"
-  "ord"
-  "personality"
-  "phi"
-  "poison"
-  "private"
-  "protected"
-  "ptrtoint"
-  "readonly"
-  "readnone"
-  "release"
-  "resume"
-  "ret"
-  "returns_twice"
-  "sdiv"
-  "section"
-  "select"
-  "seq_cst"
-  "sext"
-  "sge"
-  "sgt"
-  "shl"
-  "shufflevector"
-  "sideeffect"
-  "sitofp"
-  "sle"
-  "slt"
-  "source_filename"
-  "speculatable"
-  "spir_kernel"
-  "srem"
-  "sret"
-  "store"
-  "strictfp"
-  "sub"
-  "swiftasync"
-  "swiftcc"
-  "swifterror"
-  "swiftself"
-  "switch"
-  "syncscope"
-  "tail"
-  "target"
-  "thread_local"
+] @keyword.operator
+
+[
   "to"
-  "token"
-  "triple"
-  "true"
-  "trunc"
-  "type"
-  "udiv"
-  "ueq"
-  "uge"
-  "ugt"
-  "uitofp"
-  "ule"
-  "ult"
-  "umax"
-  "umin"
-  "undef"
-  "une"
-  "unnamed_addr"
-  "uno"
-  "unreachable"
+  "nneg"
+  "nuw"
+  "nsw"
+  "exact"
+  "disjoint"
   "unwind"
-  "urem"
+  "from"
+  "cleanup"
+  "swifterror"
+  "volatile"
+  "inbounds"
+  "inrange"
+] @keyword.control
+(icmp_cond) @keyword.control
+(fcmp_cond) @keyword.control
+
+(fast_math) @keyword.control
+
+(_ callee: _ @function)
+(function_header name: _ @function)
+
+[
+  "declare"
+  "define"
+] @keyword.function
+(calling_conv) @keyword.function
+
+[
+  "target"
+  "triple"
+  "datalayout"
+  "source_filename"
+  "addrspace"
+  "blockaddress"
+  "align"
+  "syncscope"
+  "within"
   "uselistorder"
   "uselistorder_bb"
-  "uwtable"
-  "va_arg"
-  "void"
-  "volatile"
-  "weak"
-  "weak_odr"
-  "within"
-  "writeonly"
-  "x86_fp80"
-  "x86_mmx"
-  "xchg"
-  "xor"
-  "zeroext"
-  "zeroinitializer"
-  "zext"
+  "module"
+  "asm"
+  "sideeffect"
+  "alignstack"
+  "inteldialect"
+  "unwind"
+  "type"
+  "global"
+  "constant"
+  "externally_initialized"
+  "alias"
+  "ifunc"
+  "section"
+  "comdat"
+  "thread_local"
+  "localdynamic"
+  "initialexec"
+  "localexec"
+  "any"
+  "exactmatch"
+  "largest"
+  "nodeduplicate"
+  "samesize"
+  "distinct"
+  "attributes"
+  "vscale"
+  "no_cfi"
 ] @keyword
 
-; Types
-(type_keyword) @type
-(array_type) @type
-(vector_type) @type
-(struct_type) @type
-(packed_struct_type) @type
+(linkage_aux) @keyword
+(dso_local) @keyword
+(visibility) @keyword
+(dll_storage_class) @keyword
+(unnamed_addr) @keyword
+(attribute_name) @keyword
 
-; Labels
-(label) @label
+(function_header [
+    (linkage)
+    (calling_conv)
+    (unnamed_addr)
+  ] @keyword.function)
 
-; Numbers
-(number) @number
-(float) @number
-
-; Strings
+(number) @constant.numeric.integer
+(comment) @comment
 (string) @string
 (cstring) @string
+(label) @label
+(_ inst_name: "ret" @keyword.control.return)
+(float) @constant.numeric.float
 
-; Comments
-(comment) @comment
+[
+  (local_var)
+  (global_var)
+] @variable
 
-; Variables
-(local_var) @variable
-(global_var) @variable.special
+[
+  (struct_value)
+  (array_value)
+  (vector_value)
+] @constructor
 
-; Attributes
-(attribute_name) @attribute
+[
+  "("
+  ")"
+  "["
+  "]"
+  "{"
+  "}"
+  "<"
+  ">"
+  "<{"
+  "}>"
+] @punctuation.bracket
 
-; Function declarations and definitions
-(function_header name: (global_var) @function)
-(define name: (global_var) @function)
-(declare name: (global_var) @function)
+[
+  ","
+  ":"
+] @punctuation.delimiter
 
-; Function calls
-(_call_part callee: (value (var) @function))
+[
+  "="
+  "|"
+  "x"
+  "..."
+] @operator
 
-; Operators
-(bin_op_keyword) @operator
-(fcmp_cond) @operator
-(icmp_cond) @operator
-(cast_inst) @operator
-(fast_math) @operator
+[
+  "true"
+  "false"
+] @constant.builtin.boolean
 
-; Metadata
-(metadata_name) @tag
-(metadata_ref) @tag
+[
+  "undef"
+  "poison"
+  "null"
+  "none"
+  "zeroinitializer"
+] @constant.builtin
 
-; Delimiters
-"(" @punctuation.bracket
-")" @punctuation.bracket
-"[" @punctuation.bracket
-"]" @punctuation.bracket
-"{" @punctuation.bracket
-"}" @punctuation.bracket
-"<" @punctuation.bracket
-">" @punctuation.bracket
-"<{" @punctuation.bracket
-"}>" @punctuation.bracket
-
-; Separators
-"," @punctuation.delimiter
-":" @punctuation.delimiter
-"=" @punctuation.delimiter
-"..." @punctuation.special
+(ERROR) @error
